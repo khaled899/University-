@@ -1,0 +1,99 @@
+//! Colors Vars
+$mainColor: #f44336;
+$linksColor: white;
+$paragraphsColor: gray;
+$lowAlphaMainColor: rgba(192, 14, 2, 0.7);
+$transitionDuration: 0.35s;
+$transitionDurationF: 0.6s;
+$transitionDurationO: 0.8s;
+
+//! Poppins Font
+@import url('https://fonts.googleapis.com/css2?family=Explora&family=Jua&family=Poppins:wght@200;300;400;500;600;700;900&display=swap');
+
+//! General Rules
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-family: "Poppins";
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 13px;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.main-heading {
+  text-align: center;
+  margin: 5rem 0;
+
+  h2 {
+    font-size: 2.5em;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    color: $paragraphsColor;
+    font-weight: 300;
+    font-size: 14px;
+  }
+}
+
+//! Mixins
+@mixin hero-btn {
+  font-size: 14px;
+  border: 1px solid $linksColor;
+  padding: 0.8rem 2rem;
+  border-radius: 3px;
+  font-weight: 200;
+  transition: $transitionDuration;
+
+  &:hover {
+    border-color: $mainColor;
+    background-color: $mainColor;
+  }
+}
+
+@mixin hero-btn-secondary {
+  @include hero-btn;
+  border: 2px solid $mainColor;
+  color: $mainColor;
+  font-weight: 700;
+
+  &:hover {
+    color: $linksColor;
+  }
+}
+
+@mixin section {
+  width: 85%;
+  margin: 0 auto;
+}
+
+@mixin section-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  gap: 2rem;
+
+  @media screen and (max-width: 415px) {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+}
